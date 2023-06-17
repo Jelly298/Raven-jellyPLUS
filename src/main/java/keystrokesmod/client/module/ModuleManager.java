@@ -29,6 +29,7 @@ public class ModuleManager {
       addModule(new LeftClicker());
       addModule(new RightClicker());
       addModule(new AimAssist());
+      addModule(new BowHelper());
       addModule(new BurstClicker());
       addModule(new ClickAssist());
       addModule(new DelayRemover());
@@ -57,7 +58,11 @@ public class ModuleManager {
       addModule(new AntiBot());
       addModule(new AntiShuffle());
       addModule(new Chams());
+      addModule(new UHCScoreboard());
       addModule(new ChestESP());
+
+      addModule(new MobESP());
+
       addModule(new Nametags());
       addModule(new PlayerESP());
       addModule(new Tracers());

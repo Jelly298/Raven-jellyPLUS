@@ -57,6 +57,7 @@ public class Utils {
    public static final Minecraft mc = Minecraft.getMinecraft();
    public static final String md = "Mode: ";
 
+
    public static class Player {
       public static void hotkeyToSlot(int slot) {
          if(!isPlayerInGame())
@@ -105,6 +106,12 @@ public class Utils {
          double x = ent.posX - mc.thePlayer.posX;
          double z = ent.posZ - mc.thePlayer.posZ;
          double yaw = Math.atan2(x, z) * 57.2957795D;
+         return (float)(yaw * -1.0D);
+      }
+      public static float fovToPoint(double x, double z) {
+         double dx = x - mc.thePlayer.posX;
+         double dz = z - mc.thePlayer.posZ;
+         double yaw = Math.atan2(dx, dz) * 57.2957795D;
          return (float)(yaw * -1.0D);
       }
 

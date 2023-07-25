@@ -18,7 +18,7 @@ import org.lwjgl.input.Mouse;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class ShiftTap extends Module {
+public class ShiftTap extends keystrokesmod.client.module.Module {
     public static SliderSetting range, eventType, chance;
     public static DescriptionSetting eventTypeDesc;
     public static TickSetting onlyPlayers;

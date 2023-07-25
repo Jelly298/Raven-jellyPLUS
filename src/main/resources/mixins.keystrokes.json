@@ -4,11 +4,7 @@
   "package": "keystrokesmod.client.mixins",
   "refmap": "mixins.keystrokes.refmap.json",
   "mixins": [
-    "MixinBlock"
   ],
   "client": [
-    "MixinBlockRendererDispatcher",
-    "MixinRenderChunk",
-    "MixinVisGraph"
   ]
 }

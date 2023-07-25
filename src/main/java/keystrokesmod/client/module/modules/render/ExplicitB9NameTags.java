@@ -3,12 +3,12 @@
 package keystrokesmod.client.module.modules.render;
 
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import keystrokesmod.client.module.Module;
 import keystrokesmod.client.module.setting.impl.SliderSetting;
 import keystrokesmod.client.module.setting.impl.TickSetting;
-import keystrokesmod.client.utils.CombatUtils;
-import keystrokesmod.client.utils.RenderUtils;
-import keystrokesmod.client.utils.Utils;
+import keystrokesmod.client.utils.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
@@ -18,6 +18,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.*;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.Timer;
 import net.minecraftforge.client.event.RenderLivingEvent.Specials.Pre;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -26,9 +28,12 @@ import org.lwjgl.opengl.GL11;
 import java.awt.*;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 public class ExplicitB9NameTags extends Module {
+
     boolean armor;
     boolean dura;
     boolean players = true;
@@ -48,6 +53,8 @@ public class ExplicitB9NameTags extends Module {
     private final TickSetting armorSetting;
     private final TickSetting durabilitySetting;
     private final TickSetting distanceSetting;
+
+
 
     public ExplicitB9NameTags() {
         super("(ExplicitB9)NameTags", ModuleCategory.render);
@@ -416,4 +423,6 @@ public class ExplicitB9NameTags extends Module {
 
         }
     }
+
+
 }

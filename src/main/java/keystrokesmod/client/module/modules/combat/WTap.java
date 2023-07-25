@@ -18,7 +18,7 @@ import org.lwjgl.input.Mouse;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class WTap extends Module {
+public class WTap extends keystrokesmod.client.module.Module {
     public static SliderSetting range, eventType, chance;
     public static DescriptionSetting eventTypeDesc;
     public static TickSetting onlyPlayers;

@@ -1131,6 +1131,8 @@ public class Utils {
             float r = (float)(color >> 16 & 255) / 255.0F;
             float g = (float)(color >> 8 & 255) / 255.0F;
             float b = (float)(color & 255) / 255.0F;
+            GlStateManager.disableBlend();
+            GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
             GL11.glPushMatrix();
             GL11.glEnable(3042);
             GL11.glEnable(2848);

@@ -7,7 +7,7 @@ import keystrokesmod.client.module.setting.impl.DescriptionSetting;
 import keystrokesmod.client.module.setting.impl.SliderSetting;
 import keystrokesmod.client.module.setting.impl.TickSetting;
 
-public class FallSpeed extends Module {
+public class FallSpeed extends keystrokesmod.client.module.Module {
    public static DescriptionSetting dc;
    public static SliderSetting a;
    public static TickSetting b;

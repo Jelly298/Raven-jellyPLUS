@@ -29,7 +29,7 @@ import java.lang.reflect.Method;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class RightClicker extends Module {
+public class RightClicker extends keystrokesmod.client.module.Module {
    public static SliderSetting jitterRight;
    public static TickSetting onlyBlocks;
    public static TickSetting preferFastPlace;

@@ -20,9 +20,6 @@ public class MobESP extends Module {
     Color SPECIAL_MOB_COLOUR = new Color(0, 255, 0);
     Color CHICKEN_COLOUR = new Color(255, 161, 0);
 
-    public static TickSetting showNormalMob;
-    public static TickSetting showUHCMob;
-
 
     public MobESP() {
         super("MobESP", ModuleCategory.render);

@@ -427,7 +427,7 @@ public class RenderUtils {
         if (d0 <= (double)(maxDistance * maxDistance))
         {
             FontRenderer fontrenderer = Minecraft.getMinecraft().getRenderManager().getFontRenderer();
-            float f = 1.6F;
+            float f = (float) (0.8F * sqrt(sqrt(d0)));
             float f1 = 0.016666668F * f;
             GlStateManager.pushMatrix();
             GlStateManager.translate((float)x + 0.0F, (float)y + entityIn.height + 0.5F, (float)z);
@@ -450,6 +450,7 @@ public class RenderUtils {
             }
 
             int j = fontrenderer.getStringWidth(str) / 2;
+
             GlStateManager.disableTexture2D();
             worldrenderer.begin(7, DefaultVertexFormats.POSITION_COLOR);
             worldrenderer.pos((double)(-j - 1), (double)(-1 + i), 0.0D).color(0.0F, 0.0F, 0.0F, 0.25F).endVertex();
@@ -457,12 +458,17 @@ public class RenderUtils {
             worldrenderer.pos((double)(j + 1), (double)(8 + i), 0.0D).color(0.0F, 0.0F, 0.0F, 0.25F).endVertex();
             worldrenderer.pos((double)(j + 1), (double)(-1 + i), 0.0D).color(0.0F, 0.0F, 0.0F, 0.25F).endVertex();
             tessellator.draw();
+
             GlStateManager.enableTexture2D();
             fontrenderer.drawString(str, -fontrenderer.getStringWidth(str) / 2, i, 553648127);
             GlStateManager.enableDepth();
             GlStateManager.depthMask(true);
             fontrenderer.drawString(str, -fontrenderer.getStringWidth(str) / 2, i, -1);
             GlStateManager.enableLighting();
+
+            GlStateManager.disableTexture2D();
+            GlStateManager.disableDepth();
+            GlStateManager.disableLighting();
             GlStateManager.disableBlend();
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
             GlStateManager.popMatrix();

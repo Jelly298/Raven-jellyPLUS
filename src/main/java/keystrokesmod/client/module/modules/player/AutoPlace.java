@@ -19,7 +19,7 @@ import net.minecraftforge.client.event.DrawBlockHighlightEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.lwjgl.input.Mouse;
 
-public class AutoPlace extends Module {
+public class AutoPlace extends keystrokesmod.client.module.Module {
    public static DescriptionSetting ds;
    public static TickSetting a;
    public static TickSetting b;

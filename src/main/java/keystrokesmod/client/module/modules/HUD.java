@@ -22,7 +22,7 @@ import java.util.List;
 
 import static keystrokesmod.client.main.Raven.mResourceLocation;
 
-public class HUD extends Module {
+public class HUD extends keystrokesmod.client.module.Module {
    public static TickSetting editPosition;
    public static TickSetting dropShadow;
    public static TickSetting alphabeticalSort;

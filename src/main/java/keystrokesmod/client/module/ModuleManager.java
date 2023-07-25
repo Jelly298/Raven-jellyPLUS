@@ -62,6 +62,7 @@ public class ModuleManager {
       addModule(new ChestESP());
 
       addModule(new MobESP());
+      addModule(new UHCNametags());
 
       addModule(new Nametags());
       addModule(new PlayerESP());
@@ -105,6 +106,7 @@ public class ModuleManager {
       addModule(new FPSSpoofer());
 
       addModule(new ExplicitB9NameTags());
+
       addModule(new AutoBlock());
       addModule(new MiddleClick());
 

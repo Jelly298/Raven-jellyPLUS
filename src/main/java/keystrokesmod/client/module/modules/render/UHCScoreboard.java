@@ -1,10 +1,14 @@
 package keystrokesmod.client.module.modules.render;
 
 import keystrokesmod.client.module.Module;
+import keystrokesmod.client.utils.Utils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -20,48 +24,53 @@ public class UHCScoreboard extends Module {
     }
 
     @SubscribeEvent
-    public void onOverlayRender(RenderGameOverlayEvent event){
-        if(event.type == RenderGameOverlayEvent.ElementType.TEXT){
+    public void onOverlayRender(TickEvent.RenderTickEvent event){
 
+
+        if (event.phase != TickEvent.Phase.END || !Utils.Player.isPlayerInGame())
+            return;
+
+        if (mc.currentScreen != null || mc.gameSettings.showDebugInfo)
+            return;
+
+        ScaledResolution sc = new ScaledResolution(mc);
+
+        mc.fontRendererObj.drawStringWithShadow(
+                header,
+                sc.getScaledWidth() - mc.fontRendererObj.getStringWidth(header) - 5,
+                sc.getScaledHeight() - 60,
+                -1);
+
+
+
+        if(score.isEmpty()){
             mc.fontRendererObj.drawStringWithShadow(
-                    header,
-                    event.resolution.getScaledWidth() - mc.fontRendererObj.getStringWidth(header) - 5,
-                    event.resolution.getScaledHeight() - 60,
+                    "N/A",
+                    sc.getScaledWidth() - mc.fontRendererObj.getStringWidth("N/A") - 5,
+                    sc.getScaledHeight() - 48,
                     -1);
-
-
-            if(score.isEmpty()){
-                mc.fontRendererObj.drawStringWithShadow(
-                        "N/A",
-                        event.resolution.getScaledWidth() - mc.fontRendererObj.getStringWidth("N/A") - 5,
-                        event.resolution.getScaledHeight() - 48,
-                        -1);
-                return;
-            }
-
-            int count = 0;
-            for(String playerName : score.keySet()) {
-
-                if(count >= 36) break;
-
-                String text = playerName + ": " + score.get(playerName) + " kills";
-                mc.fontRendererObj.drawStringWithShadow(
-                        text,
-                        event.resolution.getScaledWidth() - mc.fontRendererObj.getStringWidth(text) - 5,
-                        event.resolution.getScaledHeight() - 48 + count,
-                        -1
-                );
-                count += 12;
-
-
-
-            }
-
+            return;
         }
+
+        int count = 0;
+        for(String playerName : score.keySet()) {
+
+            if(count >= 36) break;
+
+            String text = playerName + ": " + score.get(playerName) + " kills";
+            mc.fontRendererObj.drawStringWithShadow(
+                    text,
+                    sc.getScaledWidth() - mc.fontRendererObj.getStringWidth(text) - 5,
+                    sc.getScaledHeight() - 48 + count,
+                    -1
+            );
+            count += 12;
+        }
+
+
     }
     @SubscribeEvent
     public void onChatReceivedMessage(ClientChatReceivedEvent event){
-
 
         String message = event.message.getUnformattedText();
         if(message.contains("UHC Champions"))

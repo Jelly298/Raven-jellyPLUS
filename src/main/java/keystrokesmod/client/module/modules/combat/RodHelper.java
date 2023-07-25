@@ -2,7 +2,10 @@ package keystrokesmod.client.module.modules.combat;
 
 import keystrokesmod.client.module.Module;
 import keystrokesmod.client.module.setting.impl.SliderSetting;
-import keystrokesmod.client.utils.*;
+import keystrokesmod.client.utils.AngleUtils;
+import keystrokesmod.client.utils.GeneralCoord;
+import keystrokesmod.client.utils.RenderUtils;
+import keystrokesmod.client.utils.Rotation;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.WorldRenderer;
@@ -20,9 +23,8 @@ import java.awt.*;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
-public class BowHelper extends Module {
+public class RodHelper extends Module {
 
     private static Field itemInUseTickField;
 
@@ -56,7 +58,7 @@ public class BowHelper extends Module {
 
 
 
-    public BowHelper() {
+    public RodHelper() {
         super("BowHelper", ModuleCategory.combat);
         this.registerSetting(ping = new SliderSetting("Ping", 200.0D, 0.0D, 300D, 1.0D));
     }

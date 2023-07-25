@@ -9,7 +9,7 @@ import keystrokesmod.client.utils.Utils;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
-public class BridgeAssist extends Module {
+public class BridgeAssist extends keystrokesmod.client.module.Module {
     private final TickSetting setLook;
     private final TickSetting onSneak;
     private final TickSetting workWithSafeWalk;

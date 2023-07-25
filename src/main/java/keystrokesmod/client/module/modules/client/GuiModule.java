@@ -8,7 +8,6 @@ import keystrokesmod.client.module.setting.impl.TickSetting;
 import keystrokesmod.client.utils.Utils;
 
 public class GuiModule extends Module {
-   public static final int bind = 54;
    public static SliderSetting guiTheme, backgroundOpacity;
    public static DescriptionSetting guiThemeDesc;
    public static TickSetting categoryBackground;

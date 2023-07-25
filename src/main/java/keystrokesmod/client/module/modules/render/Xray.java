@@ -35,6 +35,8 @@ public final class Xray extends Module {
    public static TickSetting ESPsc;
 
    public final static Color SC_COLOR = new Color(0, 255, 0);
+   public final static Color YF_COLOR = new Color(255, 255, 0);
+   public final static Color RF_COLOR = new Color(255, 0, 0);
 
    public Xray() {
       super("Xray", ModuleCategory.render);
@@ -74,14 +76,20 @@ public final class Xray extends Module {
          return;
 
       for(int y = 0; y < 5; y++) {
-         for(int x = -100; x < 100; x++) {
-            for(int z = -100; z < 100; z++) {
+         for(int x = -120; x < 120; x++) {
+            for(int z = -120; z < 120; z++) {
 
                BlockPos checkBlock = new BlockPos(mc.thePlayer.posX + x, 63 + y, mc.thePlayer.posZ + z);
                IBlockState blockState = Minecraft.getMinecraft().theWorld.getBlockState(checkBlock);
                if(blockState != null && blockState.getBlock() != null) {
                   if(blockState.getBlock().equals(Blocks.reeds)){
                      RenderUtils.drawBlockBox(checkBlock, SC_COLOR, 1f);
+                  }
+                  if(blockState.getBlock().equals(Blocks.red_flower)) {
+                     RenderUtils.drawBlockBox(checkBlock, RF_COLOR, 1f);
+                  }
+                  if(blockState.getBlock().equals(Blocks.yellow_flower)) {
+                     RenderUtils.drawBlockBox(checkBlock, YF_COLOR, 1f);
                   }
                }
 

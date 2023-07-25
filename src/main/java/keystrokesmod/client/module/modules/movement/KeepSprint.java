@@ -8,7 +8,7 @@ import keystrokesmod.client.module.setting.impl.SliderSetting;
 import keystrokesmod.client.module.setting.impl.TickSetting;
 import net.minecraft.entity.Entity;
 
-public class KeepSprint extends Module {
+public class KeepSprint extends keystrokesmod.client.module.Module {
    public static DescriptionSetting a;
    public static SliderSetting b;
    public static TickSetting c;
